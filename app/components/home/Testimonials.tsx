@@ -1,61 +1,75 @@
-export default function Testimonials() {
-  const reviews = [
-    {
-      name: "Ahmet Yılmaz",
-      university: "Kazan Federal University",
-      text: "Başvuru sürecinde hiçbir zorluk yaşamadım. Tüm işlemler profesyonel şekilde yönetildi.",
-    },
-    {
-      name: "Elif Demir",
-      university: "Lomonosov Moscow State University",
-      text: "Vize ve konaklama dahil her konuda destek aldım. Kesinlikle tavsiye ederim.",
-    },
-    {
-      name: "Mert Kaya",
-      university: "Saint Petersburg State University",
-      text: "Rusya'ya ilk geldiğim andan itibaren yanımda oldular. Çok güvenilir bir ekip.",
-    },
-  ];
+ "use client";
 
+import { Star } from "lucide-react";
+
+const testimonials = [
+  {
+    name: "Ahmet K.",
+    university: "Kazan Federal University",
+    text: "Başvuru sürecinden Rusya'ya gidene kadar her aşamada yanımdaydılar. Tüm işlemler sorunsuz ilerledi.",
+  },
+  {
+    name: "Zeynep A.",
+    university: "Saint Petersburg State University",
+    text: "Odak Danışmanlık sayesinde üniversite ve vize sürecim çok kolay geçti. Kesinlikle tavsiye ederim.",
+  },
+  {
+    name: "Mehmet Y.",
+    university: "RUDN University",
+    text: "İlk görüşmeden kayıt gününe kadar her konuda destek aldım. Profesyonel ve güvenilir bir ekip.",
+  },
+];
+
+export default function Testimonials() {
   return (
-    <section className="bg-slate-50 py-24">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-white py-28">
+      <div className="mx-auto max-w-7xl px-6">
 
         <div className="text-center">
-          <h2 className="text-5xl font-black text-[#0F2749]">
+          <span className="font-bold uppercase tracking-[0.3em] text-[#C9A227]">
+            ÖĞRENCİ YORUMLARI
+          </span>
+
+          <h2 className="mt-6 text-5xl font-black text-[#081321]">
             Öğrencilerimiz Ne Diyor?
           </h2>
 
-          <p className="mt-6 text-xl text-slate-500">
-            Odak Danışmanlık ile eğitim hayatına başlayan öğrencilerimizin yorumları.
+          <p className="mx-auto mt-6 max-w-3xl text-lg text-slate-500">
+            Bugüne kadar danışmanlık verdiğimiz öğrencilerimizin deneyimlerinden bazıları.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mt-20">
+        <div className="mt-20 grid gap-8 lg:grid-cols-3">
 
-          {reviews.map((review) => (
+          {testimonials.map((item) => (
             <div
-              key={review.name}
-              className="rounded-3xl bg-white shadow-xl p-10 hover:-translate-y-2 transition"
+              key={item.name}
+              className="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg transition hover:-translate-y-2 hover:shadow-2xl"
             >
-              <div className="text-yellow-500 text-2xl">
-                ⭐⭐⭐⭐⭐
+              <div className="mb-6 flex gap-1">
+                {[1,2,3,4,5].map((star) => (
+                  <Star
+                    key={star}
+                    size={20}
+                    fill="#C9A227"
+                    className="text-[#C9A227]"
+                  />
+                ))}
               </div>
 
-              <p className="mt-6 text-slate-600 leading-8">
-                "{review.text}"
+              <p className="leading-8 text-slate-600">
+                "{item.text}"
               </p>
 
-              <div className="mt-10">
-                <h3 className="text-xl font-bold text-[#0F2749]">
-                  {review.name}
+              <div className="mt-8 border-t pt-6">
+                <h3 className="font-bold text-[#081321]">
+                  {item.name}
                 </h3>
 
-                <p className="text-slate-500">
-                  {review.university}
+                <p className="mt-1 text-sm text-slate-500">
+                  {item.university}
                 </p>
               </div>
-
             </div>
           ))}
 

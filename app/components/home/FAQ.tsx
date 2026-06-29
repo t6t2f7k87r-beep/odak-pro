@@ -1,71 +1,79 @@
-"use client";
+ "use client";
 
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+
+const faqs = [
+  {
+    question: "Rusya'da üniversite okumak için YKS gerekli mi?",
+    answer:
+      "Hayır. Birçok Rus üniversitesi YKS puanı istemeden uluslararası öğrenci kabul etmektedir.",
+  },
+  {
+    question: "Rusça bilmeden eğitim alabilir miyim?",
+    answer:
+      "Evet. Hazırlık eğitimi alabilir veya İngilizce programlara başvurabilirsiniz.",
+  },
+  {
+    question: "Vize işlemlerini siz mi yapıyorsunuz?",
+    answer:
+      "Evet. Başvuru evraklarının hazırlanması ve vize sürecinde danışmanlık sağlıyoruz.",
+  },
+  {
+    question: "Konaklama konusunda destek veriyor musunuz?",
+    answer:
+      "Evet. Üniversite yurtları ve uygun konaklama seçenekleri konusunda destek sağlıyoruz.",
+  },
+  {
+    question: "Danışmanlık süreci ne kadar sürüyor?",
+    answer:
+      "Üniversiteye göre değişmekle birlikte başvurudan kabul mektubuna kadar süreç genellikle birkaç hafta içinde tamamlanır.",
+  },
+];
 
 export default function FAQ() {
-  const [open, setOpen] = useState<number | null>(0);
-
-  const faqs = [
-    {
-      question: "Rusya'da üniversite okumak için YKS gerekiyor mu?",
-      answer:
-        "Hayır. Çoğu Rus üniversitesi YKS puanı istemez. Lise diploması ile başvuru yapılabilir.",
-    },
-    {
-      question: "Eğitim ücretleri ne kadar?",
-      answer:
-        "Üniversiteye ve bölüme göre değişmekle birlikte yıllık ortalama 2.500 - 7.000 USD arasındadır.",
-    },
-    {
-      question: "Vize işlemlerini siz mi yapıyorsunuz?",
-      answer:
-        "Evet. Başvuru belgeleri, davetiye ve vize sürecinde tam destek sağlıyoruz.",
-    },
-    {
-      question: "Rusça bilmiyorum, sorun olur mu?",
-      answer:
-        "Hazırlık programı bulunan üniversitelerde önce Rusça eğitimi alabilir, ardından lisans eğitimine başlayabilirsiniz.",
-    },
-  ];
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-white py-24">
-      <div className="max-w-5xl mx-auto px-6">
+    <section className="bg-[#F8FAFC] py-28">
+      <div className="mx-auto max-w-4xl px-6">
 
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-black text-[#0F2749]">
-            Sık Sorulan Sorular
+        <div className="text-center">
+          <span className="font-bold uppercase tracking-[0.3em] text-[#C9A227]">
+            SIK SORULAN SORULAR
+          </span>
+
+          <h2 className="mt-6 text-5xl font-black text-[#081321]">
+            Merak Ettikleriniz
           </h2>
-
-          <p className="mt-6 text-slate-500 text-xl">
-            Merak ettiğiniz konuların cevapları burada.
-          </p>
         </div>
 
-        <div className="space-y-5">
+        <div className="mt-16 space-y-5">
 
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="rounded-2xl border border-slate-200 overflow-hidden"
+              className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow"
             >
               <button
                 onClick={() =>
-                  setOpen(open === index ? null : index)
+                  setOpenIndex(openIndex === index ? null : index)
                 }
-                className="w-full flex items-center justify-between p-6 text-left"
+                className="flex w-full items-center justify-between p-6 text-left"
               >
-                <span className="text-xl font-bold text-[#0F2749]">
+                <span className="text-lg font-semibold text-[#081321]">
                   {faq.question}
                 </span>
 
-                <span className="text-3xl">
-                  {open === index ? "−" : "+"}
-                </span>
+                <ChevronDown
+                  className={`transition ${
+                    openIndex === index ? "rotate-180" : ""
+                  }`}
+                />
               </button>
 
-              {open === index && (
-                <div className="px-6 pb-6 text-slate-500 leading-8">
+              {openIndex === index && (
+                <div className="px-6 pb-6 text-slate-600 leading-8">
                   {faq.answer}
                 </div>
               )}

@@ -1,90 +1,134 @@
- export default function Contact() {
+ "use client";
+
+import { Phone, MessageCircle, MapPin } from "lucide-react";
+
+export default function Contact() {
   return (
-    <section className="bg-[#0F2749] py-24">
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    <section
+      id="contact"
+      className="bg-[#081321] py-28"
+    >
+      <div className="mx-auto max-w-6xl px-6">
 
-        <div>
-          <span className="text-[#D4AF37] uppercase tracking-widest font-bold">
-            İletişim
-          </span>
+        <div className="rounded-[40px] bg-white p-12 shadow-2xl">
 
-          <h2 className="mt-5 text-5xl font-black text-white">
-            Hayalindeki Üniversite İçin
-            İlk Adımı At.
-          </h2>
+          <div className="grid gap-16 lg:grid-cols-2">
 
-          <p className="mt-8 text-slate-300 text-xl leading-9">
-            Ücretsiz danışmanlık al, sana en uygun üniversiteyi birlikte
-            belirleyelim.
-          </p>
-<div className="mt-10 space-y-5">
+            {/* Sol */}
 
-  <div>
-    <p className="text-[#D4AF37] font-semibold">
-      🇹🇷 WhatsApp Türkiye
-    </p>
+            <div>
 
-    <p className="text-white text-lg">
-      0545 955 42 23
-    </p>
-  </div>
+              <span className="font-bold uppercase tracking-[0.3em] text-[#C9A227]">
+                İLETİŞİM
+              </span>
 
-  <div>
-    <p className="text-[#D4AF37] font-semibold">
-      🇷🇺 WhatsApp Rusya
-    </p>
+              <h2 className="mt-6 text-5xl font-black text-[#081321]">
+                Hayalindeki Üniversite
+                <br />
+                Bir Mesaj Uzağında.
+              </h2>
 
-    <p className="text-white text-lg">
-      +7 960 046-73-38
-    </p>
-  </div>
+              <p className="mt-8 text-lg leading-9 text-slate-500">
+                Ücretsiz ön görüşme için bizimle hemen iletişime geçin.
+              </p>
 
-  <div>
-    <p className="text-[#D4AF37] font-semibold">
-      📍 Merkez
-    </p>
+              <div className="mt-10 space-y-8">
 
-    <p className="text-white">
-      Malatya / Türkiye
-    </p>
-  </div>
+                <div className="flex gap-5">
 
-</div>
+                  <Phone className="text-[#C9A227]" />
+
+                  <div>
+
+                    <h4 className="font-bold">
+                      Türkiye WhatsApp
+                    </h4>
+
+                    <p className="text-slate-500">
+                      0545 955 42 23
+                    </p>
+
+                  </div>
+
+                </div>
+
+                <div className="flex gap-5">
+
+                  <MessageCircle className="text-[#C9A227]" />
+
+                  <div>
+
+                    <h4 className="font-bold">
+                      Rusya WhatsApp
+                    </h4>
+
+                    <p className="text-slate-500">
+                      +7 960 046 73 38
+                    </p>
+
+                  </div>
+
+                </div>
+
+                <div className="flex gap-5">
+
+                  <MapPin className="text-[#C9A227]" />
+
+                  <div>
+
+                    <h4 className="font-bold">
+                      Hizmet Bölgesi
+                    </h4>
+
+                    <p className="text-slate-500">
+                      Türkiye & Rusya
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* Sağ */}
+
+            <div className="rounded-3xl bg-[#F8FAFC] p-10">
+
+              <h3 className="text-3xl font-black text-[#081321]">
+                Hemen Yazın
+              </h3>
+
+              <p className="mt-3 text-slate-500">
+                Ortalama cevap süremiz 5 dakikadır.
+              </p>
+
+              <div className="mt-10 flex flex-col gap-5">
+
+                <a
+                  href="https://wa.me/905459554223"
+                  target="_blank"
+                  className="rounded-2xl bg-[#C9A227] px-8 py-5 text-center text-lg font-bold text-[#081321] transition hover:scale-105"
+                >
+                  Türkiye WhatsApp
+                </a>
+
+                <a
+                  href="https://wa.me/79600467338"
+                  target="_blank"
+                  className="rounded-2xl border-2 border-[#081321] px-8 py-5 text-center text-lg font-bold text-[#081321] transition hover:bg-[#081321] hover:text-white"
+                >
+                  Rusya WhatsApp
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
-
-        <form className="bg-white rounded-3xl p-10 shadow-2xl space-y-6">
-
-          <input
-            type="text"
-            placeholder="Ad Soyad"
-            className="w-full rounded-xl border p-4"
-          />
-
-          <input
-            type="email"
-            placeholder="E-posta"
-            className="w-full rounded-xl border p-4"
-          />
-
-          <input
-            type="tel"
-            placeholder="Telefon"
-            className="w-full rounded-xl border p-4"
-          />
-
-          <textarea
-            placeholder="Mesajınız"
-            rows={5}
-            className="w-full rounded-xl border p-4"
-          />
-
-          <button
-            className="w-full rounded-xl bg-[#D4AF37] py-4 font-bold"
-          >
-            Başvuruyu Gönder
-          </button>
-
-        </form>
 
       </div>
     </section>

@@ -1,53 +1,87 @@
-export default function Stats() {
-  const stats = [
-    {
-      number: "2500+",
-      title: "Öğrenci",
-    },
-    {
-      number: "40+",
-      title: "Üniversite",
-    },
-    {
-      number: "%98",
-      title: "Vize Başarısı",
-    },
-    {
-      number: "10+",
-      title: "Yıllık Deneyim",
-    },
-  ];
+"use client";
 
+import { GraduationCap, Building2, BadgeCheck, Globe2 } from "lucide-react";
+
+const stats = [
+  {
+    icon: GraduationCap,
+    number: "2500+",
+    title: "Başarılı Öğrenci",
+  },
+  {
+    icon: Building2,
+    number: "40+",
+    title: "Anlaşmalı Üniversite",
+  },
+  {
+    icon: BadgeCheck,
+    number: "%98",
+    title: "Vize Başarı Oranı",
+  },
+  {
+    icon: Globe2,
+    number: "10+",
+    title: "Yıllık Deneyim",
+  },
+];
+
+export default function Stats() {
   return (
-    <section className="bg-[#0F2749] py-24">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-[#081321] py-28">
+      <div className="mx-auto max-w-7xl px-6">
 
         <div className="text-center">
-          <h2 className="text-5xl font-black text-white">
-            Rakamlarla Odak Danışmanlık
+
+          <span className="font-bold uppercase tracking-[0.3em] text-[#C9A227]">
+            RAKAMLARLA ODAK
+          </span>
+
+          <h2 className="mt-6 text-5xl font-black text-white">
+            Güven Veren Başarılarımız
           </h2>
 
-          <p className="mt-6 text-xl text-slate-300">
-            Binlerce öğrencinin hayalini gerçeğe dönüştürdük.
+          <p className="mx-auto mt-6 max-w-3xl text-lg text-slate-300">
+            Yıllardır yüzlerce öğrencinin Rusya'da eğitim hayalini
+            gerçeğe dönüştürüyoruz.
           </p>
+
         </div>
 
-        <div className="grid md:grid-cols-4 gap-8 mt-20">
+        <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
 
-          {stats.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-3xl bg-white p-10 text-center shadow-xl"
-            >
-              <h3 className="text-6xl font-black text-[#D4AF37]">
-                {item.number}
-              </h3>
+          {stats.map((item, index) => {
 
-              <p className="mt-6 text-xl font-semibold text-[#0F2749]">
-                {item.title}
-              </p>
-            </div>
-          ))}
+            const Icon = item.icon;
+
+            return (
+
+              <div
+                key={index}
+                className="rounded-3xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-xl transition hover:-translate-y-2 hover:border-[#C9A227]"
+              >
+
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#C9A227]/20">
+
+                  <Icon
+                    size={34}
+                    className="text-[#C9A227]"
+                  />
+
+                </div>
+
+                <h3 className="mt-8 text-5xl font-black text-white">
+                  {item.number}
+                </h3>
+
+                <p className="mt-4 text-slate-300">
+                  {item.title}
+                </p>
+
+              </div>
+
+            );
+
+          })}
 
         </div>
 
