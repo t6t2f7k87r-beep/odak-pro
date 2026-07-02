@@ -11,24 +11,37 @@ import FAQ from "./components/home/FAQ";
 import Contact from "./components/home/Contact";
 import Footer from "./components/layout/Footer";
 import FloatingWhatsApp from "./components/ui/FloatingWhatsApp";
+import { siteJsonLd } from "./seo";
 
 export default function Home() {
+  const jsonLd = JSON.stringify(siteJsonLd).replace(/</g, "\\u003c");
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLd,
+        }}
+      />
+
       <Navbar />
+
       <main>
         <Hero />
         <Features />
         <WhyUs />
-        <Universities />
         <Process />
         <Services />
+        <Universities />
         <Stats />
         <Testimonials />
         <FAQ />
         <Contact />
       </main>
+
       <Footer />
+
       <FloatingWhatsApp />
     </>
   );

@@ -2,82 +2,71 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-
-const faqs = [
-  {
-    question: "Rusya'da üniversite okumak için YKS gerekli mi?",
-    answer:
-      "Hayır. Birçok Rus üniversitesi YKS puanı istemeden uluslararası öğrenci kabul etmektedir.",
-  },
-  {
-    question: "Rusça bilmeden eğitim alabilir miyim?",
-    answer:
-      "Evet. Hazırlık eğitimi alabilir veya İngilizce programlara başvurabilirsiniz.",
-  },
-  {
-    question: "Vize işlemlerini siz mi yapıyorsunuz?",
-    answer:
-      "Evet. Başvuru evraklarının hazırlanması ve vize sürecinde danışmanlık sağlıyoruz.",
-  },
-  {
-    question: "Konaklama konusunda destek veriyor musunuz?",
-    answer:
-      "Evet. Üniversite yurtları ve uygun konaklama seçenekleri konusunda destek sağlıyoruz.",
-  },
-  {
-    question: "Danışmanlık süreci ne kadar sürüyor?",
-    answer:
-      "Üniversiteye göre değişmekle birlikte başvurudan kabul mektubuna kadar süreç genellikle birkaç hafta içinde tamamlanır.",
-  },
-];
+import { faqItems } from "../../data/faq";
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="bg-[#F8FAFC] py-28">
-      <div className="mx-auto max-w-4xl px-6">
+    <section id="faq" className="bg-[#F8FAFC] py-24 sm:py-28">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
 
         <div className="text-center">
+
           <span className="font-bold uppercase tracking-[0.3em] text-[#C9A227]">
             SIK SORULAN SORULAR
           </span>
 
-          <h2 className="mt-6 text-5xl font-black text-[#081321]">
+          <h2 className="mt-6 text-4xl font-black text-[#081321] sm:text-5xl">
             Merak Ettikleriniz
           </h2>
+
         </div>
 
         <div className="mt-16 space-y-5">
 
-          {faqs.map((faq, index) => (
+          {faqItems.map((faq, index) => (
+
             <div
-              key={index}
-              className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow"
+              key={faq.question}
+              className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
             >
+
               <button
+                type="button"
+                aria-expanded={open === index}
+                aria-controls={`faq-answer-${index}`}
                 onClick={() =>
-                  setOpenIndex(openIndex === index ? null : index)
+                  setOpen(open === index ? null : index)
                 }
-                className="flex w-full items-center justify-between p-6 text-left"
+                className="flex w-full items-center justify-between gap-5 p-7 text-left"
               >
+
                 <span className="text-lg font-semibold text-[#081321]">
                   {faq.question}
                 </span>
 
                 <ChevronDown
                   className={`transition ${
-                    openIndex === index ? "rotate-180" : ""
+                    open === index ? "rotate-180" : ""
                   }`}
                 />
+
               </button>
 
-              {openIndex === index && (
-                <div className="px-6 pb-6 text-slate-600 leading-8">
+              {open === index && (
+
+                <div
+                  id={`faq-answer-${index}`}
+                  className="px-7 pb-7 leading-8 text-slate-600"
+                >
                   {faq.answer}
                 </div>
+
               )}
+
             </div>
+
           ))}
 
         </div>

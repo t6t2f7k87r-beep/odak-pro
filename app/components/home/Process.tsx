@@ -1,48 +1,37 @@
- "use client";
-
-import {
-  MessageCircle,
-  FileText,
-  GraduationCap,
-  Plane,
-  CheckCircle,
-} from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 const steps = [
   {
-    icon: MessageCircle,
-    title: "İlk Görüşme",
+    number: "01",
+    title: "Ücretsiz Ön Görüşme",
     text: "Hedeflerinizi dinliyor ve size en uygun üniversiteleri belirliyoruz.",
   },
   {
-    icon: FileText,
-    title: "Başvuru",
-    text: "Belgelerinizi hazırlıyor ve resmi başvuru işlemlerini tamamlıyoruz.",
+    number: "02",
+    title: "Üniversite Başvurusu",
+    text: "Tüm başvuru belgelerini hazırlıyor ve başvuruları gerçekleştiriyoruz.",
   },
   {
-    icon: GraduationCap,
-    title: "Kabul",
+    number: "03",
+    title: "Kabul Mektubu",
     text: "Üniversiteden kabul mektubunuzun alınmasını sağlıyoruz.",
   },
   {
-    icon: Plane,
-    title: "Vize & Seyahat",
-    text: "Vize işlemleri, uçuş planlaması ve konaklama desteği sunuyoruz.",
+    number: "04",
+    title: "Vize ve Konaklama",
+    text: "Vize başvurusu, yurt ve konaklama süreçlerini yönetiyoruz.",
   },
   {
-    icon: CheckCircle,
-    title: "Eğitime Başlangıç",
-    text: "Rusya'ya ulaştığınızda kayıt işlemleriniz tamamlanır ve eğitime başlarsınız.",
+    number: "05",
+    title: "Rusya'ya Yolculuk",
+    text: "Kayıt işlemleri tamamlanır ve eğitim hayatınız başlar.",
   },
 ];
 
 export default function Process() {
   return (
-    <section
-      id="process"
-      className="bg-[#F8FAFC] py-28"
-    >
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="process" className="bg-[#081321] py-24 sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
         <div className="text-center">
 
@@ -50,59 +39,41 @@ export default function Process() {
             BAŞVURU SÜRECİ
           </span>
 
-          <h2 className="mt-6 text-5xl font-black text-[#081321]">
-            5 Adımda Rusya'da Eğitime Başlayın
+          <h2 className="mx-auto mt-6 max-w-4xl text-4xl font-black text-white sm:text-5xl">
+            5 Adımda Rusya&apos;da Eğitime Başlayın
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg text-slate-500">
-            Tüm süreci sizin adınıza planlıyor ve her aşamada yanınızda oluyoruz.
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+            Tüm süreci sizin adınıza yönetiyor, eğitim yolculuğunuzu
+            güvenli ve hızlı şekilde tamamlıyoruz.
           </p>
 
         </div>
 
-        <div className="relative mt-20">
+        <div className="mt-16 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
 
-          <div className="absolute left-8 top-0 h-full w-1 bg-[#C9A227]/20"></div>
+          {steps.map((step) => (
+            <div
+              key={step.number}
+              className="group rounded-3xl border border-white/10 bg-white/[0.06] p-7 backdrop-blur transition hover:-translate-y-1 hover:border-[#C9A227]/50 hover:bg-white/10"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <span className="text-4xl font-black text-[#C9A227]">
+                  {step.number}
+                </span>
 
-          <div className="space-y-12">
+                <CheckCircle2 className="h-6 w-6 text-[#E7C873] opacity-70 transition group-hover:opacity-100" />
+              </div>
 
-            {steps.map((step, index) => {
-              const Icon = step.icon;
+              <h3 className="mt-6 text-xl font-bold text-white">
+                {step.title}
+              </h3>
 
-              return (
-                <div
-                  key={index}
-                  className="relative flex gap-8"
-                >
-
-                  <div className="z-10 flex h-16 w-16 items-center justify-center rounded-full bg-[#081321] shadow-lg">
-                    <Icon
-                      size={30}
-                      className="text-[#C9A227]"
-                    />
-                  </div>
-
-                  <div className="flex-1 rounded-3xl bg-white p-8 shadow-lg">
-
-                    <span className="text-sm font-bold uppercase tracking-widest text-[#C9A227]">
-                      Adım {index + 1}
-                    </span>
-
-                    <h3 className="mt-2 text-2xl font-bold text-[#081321]">
-                      {step.title}
-                    </h3>
-
-                    <p className="mt-4 leading-8 text-slate-500">
-                      {step.text}
-                    </p>
-
-                  </div>
-
-                </div>
-              );
-            })}
-
-          </div>
+              <p className="mt-4 text-sm leading-7 text-slate-300">
+                {step.text}
+              </p>
+            </div>
+          ))}
 
         </div>
 

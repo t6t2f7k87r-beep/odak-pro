@@ -1,11 +1,9 @@
- "use client";
-
 import {
   GraduationCap,
   FileCheck,
-  Plane,
-  Home,
+  Building2,
   Languages,
+  Plane,
   Headset,
 } from "lucide-react";
 
@@ -13,32 +11,32 @@ const services = [
   {
     icon: GraduationCap,
     title: "Üniversite Yerleştirme",
-    text: "Size en uygun üniversite ve bölümü birlikte belirliyoruz.",
+    text: "Size en uygun Rus üniversitesini birlikte belirliyoruz.",
   },
   {
     icon: FileCheck,
-    title: "Başvuru & Vize",
-    text: "Tüm evraklar, kabul mektubu ve vize işlemleri profesyonel şekilde hazırlanır.",
+    title: "Başvuru ve Vize",
+    text: "Başvuru evrakları ve vize işlemlerini eksiksiz hazırlıyoruz.",
   },
   {
-    icon: Home,
+    icon: Building2,
     title: "Konaklama",
-    text: "Yurt veya daire seçenekleriyle güvenli konaklama sağlıyoruz.",
-  },
-  {
-    icon: Plane,
-    title: "Seyahat Desteği",
-    text: "Uçuş planlaması ve Rusya'ya varış sürecinde yanınızdayız.",
+    text: "Yurt ve konaklama seçeneklerini sizin için organize ediyoruz.",
   },
   {
     icon: Languages,
-    title: "Rusça Hazırlık",
-    text: "Hazırlık programları ve dil eğitimi konusunda rehberlik sunuyoruz.",
+    title: "Hazırlık Eğitimi",
+    text: "Rusça hazırlık ve dil sürecinde danışmanlık sağlıyoruz.",
+  },
+  {
+    icon: Plane,
+    title: "Havalimanı Karşılama",
+    text: "Rusya'ya vardığınız andan itibaren yanınızdayız.",
   },
   {
     icon: Headset,
     title: "7/24 Destek",
-    text: "Rusya'daki eğitim süreciniz boyunca danışmanlık desteği alabilirsiniz.",
+    text: "Eğitiminiz boyunca danışmanlarımızla iletişim kurabilirsiniz.",
   },
 ];
 
@@ -46,9 +44,9 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="bg-white py-28"
+      className="bg-[#F8FAFC] py-24 sm:py-28"
     >
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
         <div className="text-center">
 
@@ -56,43 +54,40 @@ export default function Services() {
             HİZMETLERİMİZ
           </span>
 
-          <h2 className="mt-6 text-5xl font-black text-[#081321]">
+          <h2 className="mt-6 text-4xl font-black text-[#081321] sm:text-5xl">
             Tüm Süreçte Yanınızdayız
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg text-slate-500">
-            İlk görüşmeden üniversite kaydına kadar her adımı sizin için yönetiyoruz.
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-600">
+            Üniversite seçiminden Rusya&apos;daki eğitim hayatınıza başlayana kadar
+            tüm aşamalarda profesyonel destek sunuyoruz.
           </p>
 
         </div>
 
-        <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
 
-          {services.map((service, index) => {
-            const Icon = service.icon;
-
-            return (
-              <div
-                key={index}
-                className="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg transition hover:-translate-y-2 hover:shadow-2xl"
-              >
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#C9A227]/10">
-                  <Icon
-                    size={32}
-                    className="text-[#C9A227]"
-                  />
-                </div>
-
-                <h3 className="mt-8 text-2xl font-bold text-[#081321]">
-                  {service.title}
-                </h3>
-
-                <p className="mt-4 leading-8 text-slate-500">
-                  {service.text}
-                </p>
+          {services.map((service) => (
+            <div
+              key={service.title}
+              className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:border-[#C9A227]/40 hover:shadow-xl"
+            >
+              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#081321]">
+                <service.icon
+                  className="h-9 w-9 text-[#E7C873]"
+                />
               </div>
-            );
-          })}
+
+              <h3 className="text-2xl font-black text-[#081321]">
+                {service.title}
+              </h3>
+
+              <p className="mt-5 leading-8 text-slate-600">
+                {service.text}
+              </p>
+
+            </div>
+          ))}
 
         </div>
 

@@ -1,52 +1,125 @@
- "use client";
+import Image from "next/image";
+import { ArrowRight, CheckCircle2, MessageCircle } from "lucide-react";
+import { siteConfig } from "../../seo";
+
+const proofItems = [
+  "Resmi başvuru ve kabul süreci",
+  "Vize, kayıt ve konaklama desteği",
+  "Türkiye & Rusya'da öğrenci takibi",
+];
+
+const stats = [
+  { value: "40+", label: "Üniversite" },
+  { value: "%98", label: "Vize başarısı" },
+  { value: "2500+", label: "Öğrenci" },
+];
 
 export default function Hero() {
   return (
-   <section
-  id="hero"
-  className="relative overflow-hidden pt-36 pb-24"
-  style={{
-    backgroundImage:
-      "linear-gradient(rgba(8,19,33,.78), rgba(8,19,33,.82)), url('/images/hero/russia.jpg')",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-  }}
->
-      <div className="mx-auto flex max-w-7xl flex-col items-center px-6 text-center">
+    <section
+      id="hero"
+      className="relative isolate overflow-hidden bg-[#081321] pt-28 pb-16 sm:pt-32 lg:pt-36 lg:pb-24"
+    >
+      <Image
+        src="/images/hero/russia.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="-z-20 object-cover opacity-45"
+      />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(105deg,rgba(8,19,33,.96)_0%,rgba(8,19,33,.88)_45%,rgba(8,19,33,.58)_100%)]" />
 
-        <span className="rounded-full bg-[#C9A227]/20 px-5 py-2 text-sm font-bold text-[#E7C873]">
-          Rusya'da Eğitim Danışmanlığı
-        </span>
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_420px]">
 
-        <h1 className="mt-8 max-w-5xl text-5xl font-black leading-tight text-white md:text-7xl">
-          Hayalindeki
-          <span className="text-[#C9A227]"> Üniversiteye </span>
-          Odak Danışmanlık ile Ulaş.
-        </h1>
+        <div className="max-w-4xl">
 
-        <p className="mt-8 max-w-3xl text-xl leading-9 text-slate-300">
-          Üniversite seçimi, başvuru, kabul, vize ve konaklama süreçlerinde
-          profesyonel danışmanlık hizmeti sunuyoruz.
-        </p>
+          <span className="inline-flex rounded-full border border-[#C9A227]/40 bg-[#C9A227]/10 px-5 py-2 text-sm font-bold text-[#E7C873]">
+            🇷🇺 Rusya Üniversite Danışmanlığı
+          </span>
 
-        <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+          <h1 className="mt-8 max-w-4xl text-4xl font-black leading-tight text-white sm:text-5xl lg:text-7xl">
+            Rusya&apos;da
+            <span className="text-[#E7C873]"> Üniversite Eğitimi </span>
+            İçin Güvenilir Danışmanınız
+          </h1>
 
-          <a
-            href="https://wa.me/905459554223"
-            target="_blank"
-            className="rounded-2xl bg-[#C9A227] px-8 py-4 text-lg font-bold text-[#081321] transition hover:scale-105"
-          >
-            Ücretsiz Danışmanlık
-          </a>
+          <p className="mt-8 max-w-2xl text-lg leading-9 text-slate-200">
+            Üniversite başvurusu, kabul mektubu, vize işlemleri,
+            konaklama ve kayıt sürecinin tamamını tek noktadan
+            profesyonel olarak yönetiyoruz.
+          </p>
 
-          <a
-            href="#universities"
-            className="rounded-2xl border border-white/20 px-8 py-4 text-lg font-semibold text-white"
-          >
-            Üniversiteleri İncele
-          </a>
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#C9A227] px-7 py-4 font-black text-[#081321] shadow-xl shadow-[#C9A227]/20 transition hover:-translate-y-0.5 hover:bg-[#E7C873]"
+            >
+              <MessageCircle size={20} />
+              Ücretsiz Ön Görüşme
+            </a>
+
+            <a
+              href="#universities"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-7 py-4 font-bold text-white backdrop-blur transition hover:bg-white hover:text-[#081321]"
+            >
+              Üniversiteleri İncele
+              <ArrowRight size={20} />
+            </a>
+
+          </div>
+
+          <div className="mt-12 grid max-w-2xl grid-cols-3 gap-3 sm:gap-5">
+
+            {stats.map((item) => (
+              <div
+                key={item.label}
+                className="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur"
+              >
+                <h3 className="text-3xl font-black text-[#E7C873] sm:text-4xl">
+                  {item.value}
+                </h3>
+
+                <p className="mt-2 text-sm text-slate-200">
+                  {item.label}
+                </p>
+              </div>
+            ))}
+
+          </div>
 
         </div>
+
+        <aside className="rounded-[32px] border border-white/15 bg-white p-6 shadow-2xl shadow-black/30">
+          <div className="flex justify-center rounded-3xl bg-white p-3">
+            <Image
+              src={siteConfig.logo}
+              alt={`${siteConfig.name} logosu`}
+              width={siteConfig.logoWidth}
+              height={siteConfig.logoHeight}
+              className="h-44 w-auto"
+              priority
+            />
+          </div>
+
+          <div className="mt-6 border-t border-slate-200 pt-6">
+            <p className="text-sm font-bold uppercase tracking-[0.28em] text-[#C9A227]">
+              Tek noktadan destek
+            </p>
+
+            <div className="mt-5 space-y-4">
+              {proofItems.map((item) => (
+                <div key={item} className="flex gap-3">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#C9A227]" />
+                  <p className="text-sm leading-6 text-slate-700">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </aside>
 
       </div>
     </section>

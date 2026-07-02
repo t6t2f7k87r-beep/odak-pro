@@ -1,17 +1,20 @@
-"use client";
+ "use client";
 
 import { MessageCircle } from "lucide-react";
+import { siteConfig } from "../../seo";
 
 export default function FloatingWhatsApp() {
   return (
     <a
-      href="https://wa.me/905459554223"
+      href={siteConfig.whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-full bg-green-500 px-6 py-4 text-white shadow-2xl transition hover:scale-105 hover:bg-green-600"
+      aria-label="WhatsApp ile iletişime geç"
+      className="fixed right-6 bottom-6 z-50 hidden h-14 items-center justify-center rounded-full bg-[#25D366] px-6 text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-green-500/30 sm:flex"
     >
-      <MessageCircle size={24} />
-      <span className="hidden font-semibold sm:block">
+      <MessageCircle className="h-7 w-7" />
+
+      <span className="ml-3 hidden font-bold sm:inline">
         WhatsApp
       </span>
     </a>

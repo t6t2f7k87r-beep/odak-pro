@@ -1,122 +1,123 @@
- import Image from "next/image";
-import Link from "next/link";
-import {
-  Phone,
-  Mail,
-  MapPin,
-  MessageCircle,
-} from "lucide-react";
+import Image from "next/image";
+import { Globe, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { siteConfig } from "../../seo";
+
+const footerLinks = [
+  { href: "#hero", label: "Ana Sayfa" },
+  { href: "#about", label: "Neden Biz" },
+  { href: "#process", label: "Başvuru Süreci" },
+  { href: "#services", label: "Hizmetler" },
+  { href: "#universities", label: "Üniversiteler" },
+  { href: "#contact", label: "İletişim" },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-[#081321] text-white">
+    <footer className="bg-[#06101d] border-t border-white/10">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
 
-      <div className="mx-auto max-w-7xl px-6 py-20">
-
-        <div className="grid gap-14 md:grid-cols-3">
-
-          {/* Logo */}
+        <div className="grid gap-12 lg:grid-cols-4">
 
           <div>
 
-            <div className="flex items-center gap-4">
-
+            <div className="inline-flex rounded-3xl bg-white p-3 shadow-lg">
               <Image
-                src="/logo.png"
-                alt="Odak Danışmanlık"
-                width={60}
-                height={60}
+                src={siteConfig.logo}
+                alt={`${siteConfig.name} logosu`}
+                width={siteConfig.logoWidth}
+                height={siteConfig.logoHeight}
+                className="h-24 w-auto"
               />
-
-              <div>
-
-                <h2 className="text-2xl font-black">
-                  ODAK
-                </h2>
-
-                <p className="text-sm tracking-[0.25em] uppercase text-[#C9A227]">
-                  Danışmanlık
-                </p>
-
-              </div>
-
             </div>
 
-            <p className="mt-6 leading-8 text-slate-300">
-              Rusya'da üniversite eğitimi almak isteyen öğrenciler için
-              profesyonel danışmanlık hizmeti sunuyoruz.
+            <p className="mt-6 leading-8 text-slate-400">
+              Rusya Üniversite Danışmanlığı alanında
+              öğrencilerimize güvenilir ve profesyonel
+              hizmet sunuyoruz.
             </p>
 
           </div>
 
-          {/* Menü */}
+          <div>
+
+            <h3 className="mb-5 text-xl font-bold text-white">
+              Menü
+            </h3>
+
+            <ul className="space-y-3 text-slate-400">
+
+              {footerLinks.map((item) => (
+                <li key={item.href}>
+                  <a href={item.href} className="transition hover:text-[#C9A227]">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+
+            </ul>
+
+          </div>
 
           <div>
 
-            <h3 className="text-xl font-bold">
-              Hızlı Menü
+            <h3 className="mb-5 text-xl font-bold text-white">
+              İletişim
             </h3>
 
-            <div className="mt-6 flex flex-col gap-4">
+            <div className="space-y-4 text-slate-400">
 
-              <Link href="#hero">Ana Sayfa</Link>
+              <a
+                href={`tel:${siteConfig.phone}`}
+                className="flex items-center gap-3 transition hover:text-[#C9A227]"
+              >
+                <Phone size={18} />
+                {siteConfig.displayPhone}
+              </a>
 
-              <Link href="#about">Neden Biz</Link>
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="flex items-center gap-3 transition hover:text-[#C9A227]"
+              >
+                <Mail size={18} />
+                {siteConfig.email}
+              </a>
 
-              <Link href="#universities">Üniversiteler</Link>
-
-              <Link href="#services">Hizmetler</Link>
-
-              <Link href="#contact">İletişim</Link>
+              <p className="flex items-center gap-3">
+                <MapPin size={18} className="text-[#C9A227]" />
+                Türkiye & Rusya
+              </p>
 
             </div>
 
           </div>
 
-          {/* İletişim */}
-
           <div>
 
-            <h3 className="text-xl font-bold">
-              İletişim
+            <h3 className="mb-5 text-xl font-bold text-white">
+              Sosyal Medya
             </h3>
 
-            <div className="mt-6 space-y-5">
+            <a
+              href={siteConfig.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 text-[#C9A227] transition hover:text-white"
+            >
+              <Globe size={18} />
+              {siteConfig.instagramHandle}
+            </a>
 
-              <div className="flex items-center gap-3">
+            <div className="mt-8">
 
-                <Phone className="text-[#C9A227]" size={20} />
-
-                <span>0545 955 42 23</span>
-
-              </div>
-
-              <div className="flex items-center gap-3">
-
-                <MessageCircle
-                  className="text-[#C9A227]"
-                  size={20}
-                />
-
-                <span>+7 960 046 73 38</span>
-
-              </div>
-
-              <div className="flex items-center gap-3">
-
-                <Mail className="text-[#C9A227]" size={20} />
-
-                <span>info@odakdanismanlik.com</span>
-
-              </div>
-
-              <div className="flex items-center gap-3">
-
-                <MapPin className="text-[#C9A227]" size={20} />
-
-                <span>Türkiye & Rusya</span>
-
-              </div>
+              <a
+                href={siteConfig.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#C9A227] px-6 py-3 font-black text-[#081321] transition hover:bg-[#E7C873]"
+              >
+                <MessageCircle size={18} />
+                WhatsApp
+              </a>
 
             </div>
 
@@ -124,24 +125,13 @@ export default function Footer() {
 
         </div>
 
-        <div className="mt-16 border-t border-white/10 pt-8">
+        <div className="mt-14 border-t border-white/10 pt-8 text-center text-sm text-slate-500">
 
-          <div className="flex flex-col items-center justify-between gap-4 text-center text-sm text-slate-400 md:flex-row">
-
-            <p>
-              © 2026 Odak Danışmanlık. Tüm Hakları Saklıdır.
-            </p>
-
-            <p>
-              Rusya Üniversite Danışmanlığı • Başvuru • Vize • Konaklama
-            </p>
-
-          </div>
+          © 2026 Odak Danışmanlık • Tüm Hakları Saklıdır.
 
         </div>
 
       </div>
-
     </footer>
   );
 }

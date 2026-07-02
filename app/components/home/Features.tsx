@@ -1,9 +1,7 @@
- "use client";
-
 import {
   GraduationCap,
   ShieldCheck,
-  Globe,
+  Globe2,
   BadgeCheck,
 } from "lucide-react";
 
@@ -11,86 +9,47 @@ const features = [
   {
     icon: GraduationCap,
     title: "40+ Üniversite",
-    text: "Rusya'nın seçkin devlet üniversiteleriyle resmi danışmanlık.",
+    text: "Rusya'nın önde gelen devlet üniversitelerine doğrudan başvuru desteği.",
   },
   {
     icon: ShieldCheck,
-    title: "Güvenli Süreç",
-    text: "Başvurudan vizeye kadar tüm işlemler profesyonel şekilde yürütülür.",
+    title: "%98 Vize Başarısı",
+    text: "Vize ve resmi evrak süreçlerinde profesyonel danışmanlık.",
   },
   {
-    icon: Globe,
-    title: "Uluslararası Destek",
-    text: "Rusya'daki yaşam ve eğitim sürecinde yanınızdayız.",
+    icon: Globe2,
+    title: "Türkiye & Rusya",
+    text: "Her iki ülkede de öğrencilerimize kesintisiz destek sunuyoruz.",
   },
   {
     icon: BadgeCheck,
-    title: "Yüksek Başarı",
-    text: "Yüzlerce öğrenciyi hayalindeki üniversiteye ulaştırdık.",
+    title: "Güvenilir Hizmet",
+    text: "Başvurudan mezuniyete kadar yanınızda olan danışmanlık.",
   },
 ];
 
 export default function Features() {
   return (
-    <section className="bg-white py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="bg-white py-16 sm:py-20">
+      <div className="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 md:grid-cols-2 xl:grid-cols-4">
+        {features.map((item) => (
+          <div
+            key={item.title}
+            className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-[#C9A227]/40 hover:shadow-xl"
+          >
+            <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#C9A227]/10">
+              <item.icon className="h-8 w-8 text-[#C9A227]" />
+            </div>
 
-        <div className="text-center">
+            <h3 className="text-xl font-black text-[#081321]">
+              {item.title}
+            </h3>
 
-          <p className="font-bold tracking-[0.3em] text-[#C9A227] uppercase">
-            NEDEN ODAK?
-          </p>
-
-          <h2 className="mt-5 text-5xl font-black text-[#081321]">
-            Eğitim Yolculuğunuz
-            <span className="text-[#C9A227]"> Güvende </span>
-          </h2>
-
-          <p className="mx-auto mt-6 max-w-3xl text-lg text-slate-500">
-            Üniversite seçiminden kayıt sürecine kadar her adımda
-            profesyonel danışmanlık hizmeti sunuyoruz.
-          </p>
-
-        </div>
-
-        <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-
-          {features.map((item, index) => {
-
-            const Icon = item.icon;
-
-            return (
-
-              <div
-                key={index}
-                className="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg transition hover:-translate-y-2 hover:shadow-2xl"
-              >
-
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#C9A227]/10">
-
-                  <Icon
-                    size={34}
-                    className="text-[#C9A227]"
-                  />
-
-                </div>
-
-                <h3 className="mt-8 text-2xl font-bold text-[#081321]">
-                  {item.title}
-                </h3>
-
-                <p className="mt-4 leading-8 text-slate-500">
-                  {item.text}
-                </p>
-
-              </div>
-
-            );
-
-          })}
-
-        </div>
-
+            <p className="mt-4 leading-7 text-slate-600">
+              {item.text}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );
