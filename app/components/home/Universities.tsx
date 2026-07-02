@@ -7,36 +7,42 @@ const universities = [
     city: "Moskova",
     image: "/images/universities/lomonosov.jpg",
     rank: "QS Top 100",
+    tuition: "4.000 - 8.000 USD",
   },
   {
     name: "Saint Petersburg State University",
     city: "St. Petersburg",
     image: "/images/universities/spbu.jpg",
     rank: "QS Top 300",
+    tuition: "4.000 - 8.000 USD",
   },
   {
     name: "Kazan Federal University",
     city: "Kazan",
     image: "/images/universities/kazan.jpg",
     rank: "QS Top 400",
+    tuition: "4.000 - 8.000 USD",
   },
   {
     name: "Bauman Moscow State Technical University",
     city: "Moskova",
     image: "/images/universities/bauman.jpg",
     rank: "Mühendislik",
+    tuition: "4.000 - 8.000 USD",
   },
   {
     name: "RUDN University",
     city: "Moskova",
     image: "/images/universities/rudn.jpg",
     rank: "Tıp",
+    tuition: "4.000 - 8.000 USD",
   },
   {
     name: "ITMO University",
     city: "St. Petersburg",
     image: "/images/universities/itmo.jpg",
     rank: "Bilgisayar Bilimleri",
+    tuition: "4.000 - 8.000 USD",
   },
 ];
 
@@ -82,6 +88,14 @@ export default function Universities() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                   className="object-cover"
                 />
+                <div className="absolute left-4 right-4 bottom-4 rounded-2xl border border-white/20 bg-[#081321]/90 px-4 py-3 text-white shadow-xl backdrop-blur">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#E7C873]">
+                    Yıllık ücret aralığı
+                  </p>
+                  <p className="mt-1 text-lg font-black">
+                    {item.tuition}
+                  </p>
+                </div>
               </div>
 
               <div className="p-8">

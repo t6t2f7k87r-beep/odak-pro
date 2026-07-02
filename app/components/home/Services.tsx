@@ -11,7 +11,7 @@ const services = [
   {
     icon: GraduationCap,
     title: "Üniversite Yerleştirme",
-    text: "Size en uygun Rus üniversitesini birlikte belirliyoruz.",
+    text: "Bölüm, şehir, bütçe ve kariyer hedefinize göre en uygun Rus üniversitesini birlikte belirliyoruz.",
   },
   {
     icon: FileCheck,
@@ -70,8 +70,8 @@ export default function Services() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:border-[#C9A227]/40 hover:shadow-xl"
-            >
+            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm ring-1 ring-transparent transition hover:-translate-y-1 hover:border-[#C9A227]/40 hover:shadow-xl hover:ring-[#C9A227]/20"
+          >
               <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#081321]">
                 <service.icon
                   className="h-9 w-9 text-[#E7C873]"

@@ -105,7 +105,8 @@ export default function Contact() {
           </h3>
 
           <p className="mt-4 leading-8 text-slate-600">
-            Ortalama dönüş süremiz 5 dakikadır.
+            Ortalama dönüş süremiz 5 dakikadır. Hedef bölümünüz ve
+            4.000 - 8.000 USD arası üniversite bütçeniz birlikte değerlendirilir.
           </p>
 
           <a
@@ -127,7 +128,7 @@ export default function Contact() {
           </a>
 
           <p className="mt-8 border-t border-slate-200 pt-6 text-sm leading-7 text-slate-600">
-            Ön görüşmede hedef bölümünüz, bütçeniz ve başvuru takviminiz birlikte değerlendirilir.
+            Ön görüşmede hedef bölümünüz, bütçeniz, üniversite ücretleri ve başvuru takviminiz birlikte değerlendirilir.
           </p>
 
         </div>

@@ -4,6 +4,7 @@ import { siteConfig } from "../../seo";
 
 const strengths = [
   "Üniversite ve bölüm seçimini birlikte netleştiriyoruz.",
+  "4.000 - 8.000 USD arası yıllık eğitim ücretlerini bütçenize göre karşılaştırıyoruz.",
   "Belgeleri, kabul mektubunu ve vize adımlarını takip ediyoruz.",
   "Rusya'ya varıştan kayıt sürecine kadar yanınızda oluyoruz.",
 ];
@@ -64,11 +65,11 @@ export default function WhyUs() {
             <div className="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-slate-200">
 
               <h3 className="text-4xl font-black text-[#C9A227]">
-                40+
+                4-8 bin $
               </h3>
 
               <p className="mt-3 text-slate-600">
-                Anlaşmalı Üniversite
+                Yıllık Eğitim Ücreti
               </p>
 
             </div>

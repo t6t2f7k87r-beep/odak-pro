@@ -7,6 +7,7 @@ const footerLinks = [
   { href: "#about", label: "Neden Biz" },
   { href: "#process", label: "Başvuru Süreci" },
   { href: "#services", label: "Hizmetler" },
+  { href: "#pricing", label: "Ücretler" },
   { href: "#universities", label: "Üniversiteler" },
   { href: "#contact", label: "İletişim" },
 ];

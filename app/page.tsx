@@ -5,6 +5,7 @@ import WhyUs from "./components/home/WhyUs";
 import Universities from "./components/home/Universities";
 import Process from "./components/home/Process";
 import Services from "./components/home/Services";
+import Investment from "./components/home/Investment";
 import Stats from "./components/home/Stats";
 import Testimonials from "./components/home/Testimonials";
 import FAQ from "./components/home/FAQ";
@@ -33,6 +34,7 @@ export default function Home() {
         <WhyUs />
         <Process />
         <Services />
+        <Investment />
         <Universities />
         <Stats />
         <Testimonials />

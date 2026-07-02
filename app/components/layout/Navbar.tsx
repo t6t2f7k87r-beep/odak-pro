@@ -11,6 +11,7 @@ const navItems = [
   { href: "#about", label: "Neden Biz" },
   { href: "#process", label: "Süreç" },
   { href: "#services", label: "Hizmetler" },
+  { href: "#pricing", label: "Ücretler" },
   { href: "#universities", label: "Üniversiteler" },
   { href: "#contact", label: "İletişim" },
 ];
